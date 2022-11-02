@@ -1,0 +1,136 @@
+:root {
+  --clr-body-bg: rgb(209, 209, 209);
+  --clr-card-bg: rgb(255, 255, 255);
+  --clr-text: rgb(80, 71, 71);
+  --clr-heading: rgb(59, 47, 47);
+}
+
+body {
+  margin: 0;
+  font-family: monospace;
+  font-size: 1.25rem;
+  line-height: 1.25;
+  background-color: var(--clr-body-bg);
+  color: var(--clr-text);
+}
+
+h1,
+h2,
+h3 {
+  color: var(--clr-heading);
+  line-height: 1.1;
+}
+
+.auto-grid {
+  --min-column-size: 225px;
+
+  display: grid;
+  gap: clamp(1rem, 5vmax, 1.625rem);
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%, var(--min-column-size)), 1fr)
+  );
+}
+
+.wrapper {
+  --max-width: 55rem;
+  width: min(100% - 2rem, var(--max-width));
+  margin-inline: auto;
+}
+
+.card {
+  padding: 1rem;
+  background-color: var(--clr-card-bg);
+  border-block-start: 0.5rem solid;
+  border-radius: 0.5rem;
+}
+
+.card > * {
+  margin: 0;
+}
+
+.card > *:not(:last-child) {
+  margin-bottom: 0.75rem;
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.color-picker > fieldset {
+  border: 0;
+  display: flex;
+  gap: 2rem;
+  width: fit-content;
+  background: var(--clr-card-bg);
+  padding: 1rem 3rem;
+  margin-inline: auto;
+  border-radius: 0 0 1rem 1rem;
+}
+
+.color-picker input[type="radio"] {
+  appearance: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  outline: 3px solid var(--radio-color, currentColor);
+  outline-offset: 3px;
+  border-radius: 50%;
+}
+
+.color-picker input[type="radio"]:checked {
+  background-color: var(--radio-color);
+}
+
+.color-picker input[type="radio"]#light {
+  --radio-color: var(--clr-text);
+}
+.color-picker input[type="radio"]#red {
+  --radio-color: red;
+}
+.color-picker input[type="radio"]#blue {
+  --radio-color: blue;
+}
+.color-picker input[type="radio"]#green {
+  --radio-color: green;
+}
+.color-picker input[type="radio"]#dark {
+  --radio-color: rgb(0, 0, 0);
+}
+
+.red,
+:root:has(#red:checked) {
+  --clr-body-bg: rgb(255, 0, 0);
+  --clr-card-bg: rgb(173, 0, 0);
+  --clr-text: rgb(240, 138, 138);
+  --clr-heading: rgb(255, 183, 183);
+}
+
+.blue,
+:root:has(#blue:checked) {
+  --clr-body-bg: rgb(0, 0, 104);
+  --clr-card-bg: rgb(0, 0, 212);
+  --clr-text: rgb(116, 116, 245);
+  --clr-heading: rgb(rgb(101, 101, 255));
+}
+
+.red,
+:root:has(#green:checked) {
+  --clr-body-bg: rgb(0, 185, 0);
+  --clr-card-bg: rgb(5, 168, 5);
+  --clr-text: rgb(3, 63, 3);
+  --clr-heading: rgb(7, 48, 7);
+}
+
+.dark,
+:root:has(#dark:checked) {
+  --clr-body-bg: rgb(48, 48, 48);
+  --clr-card-bg: rgb(71, 71, 71);
+  --clr-text: rgb(255, 255, 255);
+  --clr-heading: rgb(206, 206, 206);
+}
