@@ -1,0 +1,121 @@
+@font-face {
+  font-family: "Fraunces";
+  src: url(./design/Fraunces.woff2);
+}
+@font-face {
+  font-family: "Monteserrat";
+  src: url(./design/Montserrat.woff2);
+}
+
+:root {
+  --clr-pr-cyan: hsl(158, 36%, 37%);
+  --clr-pr-cyan-dark: hsl(159, 36%, 16%);
+  --clr-pr-cream: hsl(30, 38%, 92%);
+  --clr-sec-dark_blue: hsl(212, 21%, 14%);
+  --clr-sec-grayish_blue: hsl(228, 12%, 48%);
+  --clr-sec-white: hsl(0, 0%, 100%);
+
+  --ff-pr: "Fraunces", serif;
+  --ff-sec: "Monteserrat", sans-serif;
+
+  --fw-regular: 500;
+  --fw-bold: 700;
+}
+body {
+  font-family: var(--ff-pr);
+  font-weight: var(--fw-regular);
+  color: var(--clr-sec-dark_blue);
+  background-color: var(--clr-pr-cream);
+  display: grid;
+  place-content: center;
+  margin: 1rem;
+}
+
+.flex-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.btn {
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.85rem;
+  border: 0;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  background-color: var(--clr-pr-cyan);
+  color: var(--clr-pr-cream);
+  font-weight: var(--fw-bold);
+}
+.btn:is(:hover, :focus) {
+  background-color: var(--clr-pr-cyan-dark);
+}
+.btn[data-icon="shopping-card"]::before {
+  content: "";
+  width: 15px;
+  height: 16px;
+  background-image: url("images/icon-cart.svg");
+}
+
+.product {
+  --content-padding: 1.5rem;
+  --content-spacing: 1rem;
+
+  display: grid;
+  background-color: var(--clr-sec-white);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  max-width: 650px;
+}
+
+@media (min-width: 600px) {
+  .product {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.product__content {
+  padding: var(--content-padding);
+  display: grid;
+  gap: var(--content-spacing);
+}
+
+.product__category {
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+.product__title {
+  font-size: 2rem;
+  font-family: var(--ff-pr);
+  color: var(--clr-sec-dark_blue);
+  font-weight: var(--fw-bold);
+}
+
+.visually-hidden:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: inherit;
+  width: 1px;
+}
+
+.product__price {
+  font-size: 2rem;
+  font-family: var(--ff-pr);
+  color: var(--clr-pr-cyan);
+  font-weight: var(--fw-bold);
+}
+.product__oringal-price {
+  font-display: ;
+}
+
+p {
+  font-size: 14px;
+}
