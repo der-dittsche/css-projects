@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Design</title>
+    <!--     <link rel="stylesheet" href="asset/normalize.css"> -->
+    <link rel="stylesheet" href="asset/style.css">
+</head>
+
+<body>
+    <div class="navigation">
+        <ul class="list-items">
+            <li class="list active">
+                <a href="#">
+                    <div class="icon"><img src="./asset/icon/house-door.svg" height="20px"></div>
+                    <div class="text">Home</div>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon"><img src="./asset/icon/folder.svg" height="20px"></span>
+                    <span class="text">Song-List</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon"><img src="./asset/icon/cloud-arrow-up.svg" height="20px"></span>
+                    <span class="text">Upload</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon"><img src="./asset/icon/gender-trans.svg" height="20px"></span>
+                    <span class="text">User</span>
+                </a>
+            </li>
+            <div class="indicator"></div>
+        </ul>
+
+    </div>
+    <script>
+        const list = document.querySelectorAll('.list');
+        function activeLink() {
+            list.forEach((item) =>
+                item.classList.remove('active'));
+            this.classList.add('active');
+        }
+        list.forEach((item) =>
+            item.addEventListener('click', activeLink))
+    </script>
+</body>
+
+</html>
